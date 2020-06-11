@@ -18,7 +18,9 @@ export default function(opt) {
     const landingPage = opt.landing || 'https://tmbtc.net/';
 
     function GetClientIdFromHostname(hostname) {
-        return myTldjs.getSubdomain(hostname);
+        //return myTldjs.getSubdomain(hostname);
+        const pieces = hostname.split(':');
+        return myTldjs.getSubdomain(pieces[0]);
     }
 
     const manager = new ClientManager(opt);
